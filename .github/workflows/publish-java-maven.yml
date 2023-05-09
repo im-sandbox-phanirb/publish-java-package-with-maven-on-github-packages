@@ -32,10 +32,9 @@ jobs:
       - name: Upload artifact to release
         uses: actions/upload-artifact@v2
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: target/*.jar
-          asset_name: My JAR File
-          asset_content_type: application/java-archive
+          name: My JAR File
+          path: target/*.jar
+          release-url: ${{ steps.create_release.outputs.upload_url }}
         env:
           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
         
